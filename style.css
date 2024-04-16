@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Itim&family=Lemon&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('images/ballon1.png') #e5766e;
+    background-size: cover;
+}
+
+.invitation {
+    width: 500px;
+    height: 400px;
+    background: black;
+    overflow: hidden;
+    position: relative;
+    animation: show_letter 1.25s ease 2s forwards;
+    top: -100%;
+    box-shadow: 5px 5px #00000078;
+}
+
+.invitation__top {
+    width: 500px;
+    height: 500px;
+    background: #a1c4fd;
+    position: absolute;
+    left: 50%;
+    top: -25.5%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 4;
+    transition: 1s linear;
+    border: 1px solid white;
+}
+
+.invitation__top .stick {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background: white;
+    top: 10px;
+    left: 0;
+    z-index: 999;
+}
+
+.invitation__left {
+    width: 500px;
+    height: 500px;
+    background: #ff9a9e;
+    position: absolute;
+    left: -20.7%;
+    top: 63%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 2;
+}
+
+.invitation__right {
+    width: 500px;
+    height: 500px;
+    background: #ff9a9e;
+    position: absolute;
+    right: -120.7%;
+    top: 63%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 2;
+}
+
+.invitation__bottom {
+    width: 500px;
+    height: 500px;
+    background: #ffecd2;
+    position: absolute;
+    left: -50%;
+    bottom: -25%;
+    transform: translate(50%, 50%) rotate(45deg);
+    z-index: 2;
+}
+
+.stick {
+    z-index: 9;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: white;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.25s linear;
+}
+
+.stick i {
+    font-size: 40px;
+}
+
+.letter {
+    width: 500px;
+    height: 400px;
+    background: white;
+    position: fixed;
+    top: -50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    z-index: 1;
+    border: 5px inset red;
+
+    animation: show_letter2 1.25s ease 2s forwards;
+    /* z-index: 11;
+    height: 80%;
+    width: 80%; */
+}
+
+.stick.hidden__stick {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.invitation__top.hidden__top {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.letter.show {
+    animation: show 1s linear 2s forwards;
+    top: 50%;
+    box-shadow: 5px 5px #00000078;
+}
+
+.letter .title {
+    font-family: 'Pacifico';
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    margin: 25px 0;
+    background: linear-gradient(#db3079, #db9230);
+    background-clip: text;
+    color: transparent;
+    font-size: 50px;
+}
+
+.letter p {
+    font-size: 32px;
+    opacity: 0;
+    visibility: hidden;
+    line-break: anywhere;
+    line-height: 60px;
+}
+
+.letter img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+}
+
+.letter p>span {
+    visibility: hidden;
+    opacity: 0;
+    margin: 0 5px;
+    font-family: 'itim';
+    display: inline-block;
+}
+
+.line {
+    text-align: center;
+    font-size: 50px;
+    color: red;
+    margin-top: 20px;
+    font-family: itim;
+    font-style: italic;
+    position: relative;
+    left: -100%;
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+}
+
+img {
+    position: fixed;
+}
+
+img:first-of-type {
+    top: 20px;
+    left: 30px;
+    height: 200px;
+}
+
+img:nth-of-type(2) {
+    top: 40px;
+    right: 50px;
+    height: 200px;
+}
+
+img:nth-of-type(3) {
+    bottom: 40px;
+    left: 50px;
+    height: 200px;
+}
+
+img:nth-of-type(4) {
+    bottom: 40px;
+    right: 10px;
+    height: 200px;
+}
+
+.letter span:first-of-type {
+    margin-left: 80px;
+}
+
+.letter .img_cake img {
+    object-fit: fill;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 80%;
+    width: 50%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.balloon_1 img {
+    width: 20%;
+    object-fit: fill;
+    top: 10%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.balloon_2 img {
+    width: 20%;
+    object-fit: fill;
+    left: unset;
+    transform: translate(-50%, -50%);
+    right: -10%;
+    top: unset;
+    bottom: -10%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@keyframes show_balloon_1 {
+    0% {
+        top: 200%;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        top: 10%;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes show_balloon_2 {
+    0% {
+        bottom: -200%;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: -10%;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes show_img_cake {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes show_text_letter {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes show_text {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    0% {
+        top: 50%;
+        border-radius: 0;
+        z-index: 1;
+    }
+
+    25% {
+        top: 0;
+        height: 400px;
+        width: 500px;
+        z-index: 1;
+    }
+
+    65% {
+        height: 800px;
+        width: 800px;
+        top: 50%;
+    }
+
+    100% {
+        border-radius: 20px;
+        height: 800px;
+        width: 800px;
+        z-index: 11;
+    }
+}
+
+@keyframes show_letter {
+    0% {
+        top: -100%;
+    }
+
+    50% {
+        top: 40px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes show_letter2 {
+    0% {
+        top: -50%;
+    }
+
+    50% {
+        top: calc(50% + 40px);
+    }
+
+    100% {
+        top: 50%;
+    }
+}
+
+@keyframes show_param2 {
+    0% {
+        left: -100%;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    50% {
+        left: 51%;
+    }
+
+    100% {
+        left: 50%;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+canvas {
+    cursor: crosshair;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 900px) {
+
+    .invitation,
+    .letter {
+        width: 250px;
+        height: 150px;
+    }
+
+    img:first-of-type {
+        height: 80px;
+    }
+
+    img:nth-of-type(2) {
+        height: 80px;
+    }
+
+    img:nth-of-type(3) {
+        height: 80px;
+    }
+
+    img:nth-of-type(4) {
+        height: 80px;
+    }
+
+    .stick {
+        width: 50px;
+        height: 50px;
+        top: 70%;
+    }
+
+    .stick i {
+        font-size: 20px;
+    }
+
+    .invitation__top {
+        width: 240px;
+        height: 240px;
+    }
+
+    .invitation__bottom,
+    .invitation__left,
+    .invitation__right {
+        width: 250px;
+        height: 250px;
+    }
+
+    @keyframes show {
+        0% {
+            top: 50%;
+            border-radius: 0;
+            z-index: 1;
+        }
+
+        25% {
+            top: 0;
+            width: 250px;
+            height: 150px;
+            z-index: 1;
+        }
+
+        65% {
+            width: 300px;
+            height: 400px;
+            top: 50%;
+        }
+
+        100% {
+            border-radius: 20px;
+            width: 300px;
+            height: 400px;
+            z-index: 11;
+        }
+    }
+
+    .letter .title {
+        font-size: 16px;
+    }
+
+    .letter p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .letter p span:first-of-type {
+        margin-left: 30px;
+    }
+
+    .line {
+        font-size: 20px;
+    }
+}
